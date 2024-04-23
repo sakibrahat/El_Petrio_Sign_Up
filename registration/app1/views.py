@@ -18,7 +18,7 @@ def SignupPage(request):
         pass2 = request.POST.get('password2')
 
         if pass1 != pass2:
-            return HttpResponse("Your password and confrom password are not Same!!")
+            return HttpResponse("Your password and confirm password are not Same!!")
         else:
 
             my_user = User.objects.create_user(uname, email, pass1)
@@ -49,3 +49,7 @@ def LogoutPage(request):
 
 def UserPage(request):
     return render(request, 'user.html')
+
+
+def ServicePage(request):
+    return render(request, 'services.html')
