@@ -9,13 +9,17 @@
     <div class="register">
     <h2>Pet Profile</h2>
     <form id="register" method="post">
+    <div>
     <label>First Name : </label>
     <br>
     <input type="text" name="firstname" id="name" placeholder="Enter Your First Name">
+    </div>
     <br>
+    <div>
     <label>Last name : </label>
     <br>
     <input type="text" name="lastname" id="name" placeholder="Enter Your Last Name">
+    </div>
     <br>
     <label>Age : </label>
     <br>
@@ -27,7 +31,7 @@
     <br>
     <label>Contact No. : </label>
     <br>
-    <input type="number" name="contact no." id="name" placeholder="Enter Your Contact Number">
+    <input type="tel" name="contact no." id="name" placeholder="Enter Your Contact Number">
     <br>
     <div class="input-name">
     <label>Gender : </label>
@@ -36,6 +40,18 @@
     <input type="radio" class="radio-button" name="r1">
     <label>Female</label>
     </div>
+    <br>
+    <div class="input-name">
+    <label>Pet : </label>
+    <select class="Pets">
+        <option>Select your pet</option>
+        <option>Bird</option>
+        <option>Cat</option>
+        <option>Dog</option>
+        <option>Others</option>
+    </select>
+    </div>
+    <br>
     </form>
     </div><!--end register-->
 </div><!--end main-->
