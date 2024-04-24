@@ -9,6 +9,7 @@
     <div class="register">
     <h2>Pet Profile</h2>
     <form id="register" method="post">
+    {% csrf_token %}
     <div class="input-name">
     <label>First Name : </label>
     <br>
@@ -24,19 +25,19 @@
     <div class="input-name">
     <label>Age : </label>
     <br>
-    <input type="number" name="age" id="name" placeholder="Enter Your Age">
+    <input type="number" name="age" id="number" placeholder="Enter Your Age">
     </div>
     <br>
     <div class="input-name">
     <label>Email : </label>
     <br>
-    <input type="email" name="email" id="name" placeholder="Enter Your Valid Mail">
+    <input type="email" name="email" id="email" placeholder="Enter Your Valid Mail">
     </div>
     <br>
     <div class="input-name">
     <label>Contact No. : </label>
     <br>
-    <input type="tel" name="contact no." id="name" placeholder="Enter Your Contact Number">
+    <input type="tel" name="contact no." id="number" placeholder="Enter Your Contact Number">
     </div>
     <br>
     <div class="input-name">
@@ -68,6 +69,24 @@
     <input type="text" name="breed" id="name" placeholder="Enter pets breed">
     </div>
     <br>
+    <div class="input-name">
+    <label>Start Date : </label>
+    <input type="date" name="date" id="date" placeholder="Enter the date">
+    </div>
+    <br>
+    <div class="input-name">
+    <label>End date : </label>
+    <input type="date" name="date" id="date" placeholder="Enter the date">
+    </div>
+    <br>
+    <div class="input-name">
+         <input type="checkbox" class="check-button">
+         <label>I accept the terms and conditions.</label>
+    </div>
+    <br>
+    <div class="input-name">
+        <input type="submit" value="submit">
+    </div>
     </form>
     </div><!--end register-->
 </div><!--end main-->
