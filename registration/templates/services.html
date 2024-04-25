@@ -9,24 +9,22 @@
 
     <title>Fill Up Your Pet Details</title>
 </head>
-<style>
-*{
-     margin: 0;
-     padding: 0;
-}
+<style type="text/CSS">
 body{
-     background: rgb(230, 227, 227);
-     back-ground-size: 280%;
-     background-position: -400px 0px;
-}
-div.main{
-    width:  400px;
-    margin: 100px auto 0px auto;
+     font-size: 16px;
+     background: #f9f9f9;
 }
 h2{
      text-align: center;
-     padding: 20px;
-     font-family: sans-serif;
+     border-bottom: 2px solid green;
+}
+form{
+     width: 300px;
+     background: #fff;
+     padding: 15px 40px 40px;
+     margin: 50px auto 0;
+     border: 2px solid #ccc;
+     border-radius: 5px;
 }
   </style>
 <body>
@@ -105,12 +103,11 @@ h2{
     </div>
     <br>
     <div class="input-name">
-         <input type="checkbox" class="check-button">
-         <label>I accept the terms and conditions.</label>
+        <label><input type="checkbox" class="check-button"> I accept the terms and conditions.</label>
     </div>
     <br>
     <div class="input-name">
-        <input type="submit" value="submit">
+        <input type="submit" class="btn btn-success btn-block" value="submit">
     </div>
     </form>
     </div><!--end register-->
