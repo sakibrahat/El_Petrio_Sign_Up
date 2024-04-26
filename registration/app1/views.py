@@ -52,4 +52,8 @@ def UserPage(request):
 
 
 def ServicePage(request):
-    return render(request, 'services.html')
+    return render(request, 'service.html')
+
+
+def ServicesPage(request):
+    return render(request, 'newservices.html')
