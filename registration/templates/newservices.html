@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service page</title>
+</head>
+<style>
+  .container.Welcome to El petrio Services{
+  margin: 0 0 83px 112.3px;
+  display: inline-block;
+  align-self: center;
+  overflow-wrap: break-word;
+  font-family: 'Inknut Antiqa';
+  font-weight: 700;
+  font-size: 35px;
+  text-decoration-line: underline;
+  color: #FFFFFF;
+  }
+  .container{
+  background: #57565C;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-bottom: 69px;
+  width: 1440px;
+  box-sizing: border-box;
+  }
+</style>
+<body>
+<div>
+    <span class="Daycare">
+        Daycare <br>
+            <a href="{% url 'service' %}" class="btn btn-primary">Sign In</a>
+    </span>
+    <div class="Welcome to El Petrio Services">
+        Welcome To El Petrio Services.
+    </div>
+</div>
+</body>
+</html>
