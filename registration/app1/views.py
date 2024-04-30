@@ -61,6 +61,9 @@ def servicepage(request):
 def servicespage(request):
     return render(request, 'newservices.html')
 
+def Adoption(request):
+    return render(request, 'Adoption.html')
+
 def buying_page(request):
     return render(request, 'Buying.html')
     # Get parameters from the request, if any
@@ -90,4 +93,19 @@ def buying_page(request):
         'pets': pets,
     }
     return render(request, 'homepage/buying_page.html', context)
+
+
+
+def pet_buying_page(request):
+    query = request.GET.get('q')
+    pets = Pet.objects.all()
+
+    if query:
+        pets = pets.filter(breed__icontains=query)  # Assuming 'name' is the field you want to search on
+
+    context = {
+        'pets': pets,
+        'query': query
+    }
+    return render(request, 'Buying.html', context)
 

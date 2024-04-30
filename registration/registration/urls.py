@@ -29,6 +29,7 @@ urlpatterns = [
     path('service/', views.servicepage, name='service'),
     path('newservices/', views.servicespage, name='newservices'),
     path('Buying/', views.buying_page, name='Buying'),
+    path('Adoption/', views.Adoption, name='Adoption'),
 
 
 
