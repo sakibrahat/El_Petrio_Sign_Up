@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from app1 import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.signuppage, name='signup'),
@@ -28,6 +29,7 @@ urlpatterns = [
     path('service/', views.servicepage, name='service'),
     path('newservices/', views.servicespage, name='newservices'),
     path('Buying/', views.buying_page, name='Buying'),
+
 
 
 ]

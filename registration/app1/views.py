@@ -1,7 +1,9 @@
-from django.shortcuts import render, HttpResponse, redirect
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.shortcuts import render, HttpResponse, redirect
+
+
 from .models import Pet
 
 
@@ -88,3 +90,4 @@ def buying_page(request):
         'pets': pets,
     }
     return render(request, 'homepage/buying_page.html', context)
+

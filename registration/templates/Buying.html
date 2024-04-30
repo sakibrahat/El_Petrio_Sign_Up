@@ -9,7 +9,7 @@
 
     <style>
         body {
-            font-family: arial, sans-serif;
+            font-family: tauri, sans-serif;
 
 
         }
@@ -27,6 +27,27 @@
             padding: 10px;
             border: 1px solid #ccc;
         }
+        .navigation {
+      background-color: #136262;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+    }
+        .navigation a {
+      color: #FFFFFF;
+      margin: 0 10px;
+      font-family: 'tauri', sans-serif;
+      font-size: 18px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+        .navigation a:hover {
+      color: #53B94A;
+    }
+        .underlined-heading {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 
@@ -35,7 +56,16 @@
     <div class="header">
         <h1>Buying Page </h1>
     </div>
+    <nav class="navigation">
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'newservices' %}">Daycare Service</a>
+    <a href="#">Pricing</a>
+    <a href="{% url 'Buying' %}" class="underlined-heading">Buying</a>
+    <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+  </nav>
+
     <div class="content">
+
 
         <h2>Search Results</h2>
 
@@ -45,7 +75,8 @@
             color: black
             }
         </style>
-        <form method="get">
+        <form method="get"  >
+
             <input type="text" name="query" placeholder="Search by breed">
             <input type="number" name="min_age" placeholder="Min Age">
             <input type="number" name="max_age" placeholder="Max Age">
