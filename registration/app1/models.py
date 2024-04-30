@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Pet(models.Model):
     breed = models.CharField(max_length=100)
     age = models.IntegerField()

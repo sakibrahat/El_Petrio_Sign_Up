@@ -55,6 +55,19 @@ def userpage(request):
 
 
 def servicepage(request):
+    if request.method == 'POST':
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        age = request.POST.get('age')
+        email = request.POST.get('email')
+        contact_no = request.POST.get('contact_no')
+        gender = request.POST.get('gender')
+        pet = request.POST.get('pet')
+        special_marks = request.POST.get('special_marks')
+        breed = request.POST.get('breed')
+        start_date = request.POST.get('start_date')
+        end_date = request.POST.get('end_date')
+        terms_condition = request.POST.get('term_condition')
     return render(request, 'service.html')
 
 
@@ -63,6 +76,7 @@ def servicespage(request):
 
 def Adoption(request):
     return render(request, 'Adoption.html')
+
 
 def buying_page(request):
     return render(request, 'Buying.html')
