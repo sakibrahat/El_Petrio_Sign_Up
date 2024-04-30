@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, HttpResponse, redirect
 
-
 from .models import Pet
 
 
@@ -54,7 +53,7 @@ def userpage(request):
     return render(request, 'user.html')
 
 
-def servicepage(request):
+def servicepage(request, form=None):
     if request.method == 'POST':
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')
