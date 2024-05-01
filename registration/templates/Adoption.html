@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,8 +85,38 @@
             width: 80%;
         }
     }
+    .navigation {
+            background-color: #136262;
+            padding: 50px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .navigation a {
+            color: #FFFFFF;
+            margin: 0 10px;
+            font-family: 'tauri', sans-serif;
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .navigation a:hover {
+            color: #53B94A;
+        }
 </style>
 <body>
+
+    <nav class="navigation">
+        <h2 style="color: white;">Pet adoption</h2>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'newservices' %}">Daycare Service</a>
+        <a href="#">Pricing</a>
+        <a href="{% url 'Buying' %}">Buying</a>
+        <a href="{% url 'Adoption' %}">Pet Adoption</a>
+        <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+
+    </nav>
 <div class="main">
     <div class="register">
         <form id="register" method="post">
@@ -128,14 +159,17 @@
                 <button type="button" class="btn btn-submit">Submit</button>
             </div>
         </form>
-    </div><!--end register-->
-</div><!--end main-->
+    </div>
+</div>
 
 <script>
     document.querySelector('.btn-submit').addEventListener('click', function() {
         alert('Your adoption request is successful.');
         document.getElementById('register').reset();
+        
     });
 </script>
+
+
 </body>
 </html>

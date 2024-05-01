@@ -32,13 +32,6 @@ def make_payment(request):
 
 
 
-
-
-
-
-
-
-# Create your views here.
 @login_required(login_url='login')
 def homepage(request):
     return render(request, 'home.html')
@@ -147,8 +140,7 @@ def pet_buying_page(request):
     pets = Pet.objects.all()
 
     if query:
-        pets = pets.filter(breed__icontains=query)  # Assuming 'name' is the field you want to search on
-
+        pets = pets.filter(breed__icontains=query)  
     context = {
         'pets': pets,
         'query': query
