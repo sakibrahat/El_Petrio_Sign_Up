@@ -1,0 +1,163 @@
+<!-- templates/homepage/buying_page.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <style>
+        body {
+            font-family: tauri, sans-serif;
+
+
+        }
+        .header {
+            background-color: #136262;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            background-color: lightgrey;
+            padding: 20px;
+        }
+        .pet-item {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .navigation {
+      background-color: #136262;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+    }
+        .navigation a {
+      color: #FFFFFF;
+      margin: 0 10px;
+      font-family: 'tauri', sans-serif;
+      font-size: 18px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+        .navigation a:hover {
+      color: #53B94A;
+    }
+        .underlined-heading {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Buying Page </h1>
+    </div>
+    <nav class="navigation">
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'newservices' %}">Daycare Service</a>
+    <a href="#">Pricing</a>
+    <a href="{% url 'Buying' %}" class="underlined-heading">Buying</a>
+        <a href="{% url 'Adoption' %}">Pet Adoption</a>
+    <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+  </nav>
+
+    <div class="content">
+
+
+        <h2>Search Results</h2>
+
+
+        <style>
+            {
+            color: black
+            }
+        </style>
+        <form method="GET" action="{% url 'Buying' %}">
+    <input type="text" name="q" placeholder="Search for pets...">
+    <button type="submit">Search</button>
+
+            <input type="text" name="query" placeholder="Search by breed">
+            <input type="number" name="min_age" placeholder="Min Age">
+            <input type="number" name="max_age" placeholder="Max Age">
+            <input type="text" name="location" placeholder="Location">
+            <input type="number" name="min_price" placeholder="Min Price">
+            <input type="number" name="max_price" placeholder="Max Price">
+
+        </form>
+        {% if pets %}
+            <ul>
+            {% for pet in pets %}
+                <li class="pet-item">
+                    <h3>{{ pet.breed }}</h3>
+                    <p>Age: {{ pet.age }}</p>
+                    <p>Location: {{ pet.location }}</p>
+                    <p>Owner: {{ pet.owner }}</p>
+                    <p>Price: ${{ pet.price }}</p>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No pets found.</p>
+        {% endif %}
+    </div>
+<h2>Add Your Pet</h2>
+
+    <!-- Radio buttons -->
+    <input type="radio" name="action" id="addPetRadio" value="addPet">
+    <label for="addPetRadio">Add Pet</label>
+
+    <!-- Form to add a pet (Initially hidden) -->
+    <form id="addPetForm" style="display: none;">
+        <label for="petName">Pet Name:</label>
+        <input type="text" id="petName" name="petName"><br><br>
+        <label for="petPrice">Pet Price:</label>
+        <input type="text" id="petPrice" name="petPrice"><br><br>
+        <button type="button" onclick="addPet()">Add</button>
+    </form>
+
+    <script>
+        function addPet() {
+            var petName = document.getElementById("petName").value;
+            var petPrice = document.getElementById("petPrice").value;
+
+            // You can perform validation here if needed
+
+            // Display the added pet in the list with a Purchase button
+            var petList = document.getElementById("petList");
+            var listItem = document.createElement("li");
+            var purchaseButton = document.createElement("button");
+            purchaseButton.textContent = "Purchase";
+            purchaseButton.onclick = function() {
+                window.location.href = "make_payment.html?petName=" + encodeURIComponent(petName) + "&petPrice=" + encodeURIComponent(petPrice);
+            };
+            listItem.textContent = petName + " - $" + petPrice;
+            listItem.appendChild(purchaseButton);
+            petList.appendChild(listItem);
+
+            // Clear the form fields
+            document.getElementById("petName").value = "";
+            document.getElementById("petPrice").value = "";
+        }
+
+        // Function to show/hide the add pet form based on radio button selection
+        document.getElementById("addPetRadio").addEventListener("change", function() {
+            var addPetForm = document.getElementById("addPetForm");
+            if (this.checked) {
+                addPetForm.style.display = "block";
+            } else {
+                addPetForm.style.display = "none";
+            }
+        });
+    </script>
+
+    <!-- List to display added pets -->
+    <h3>Added Pets:</h3>
+    <ul id="petList"></ul>
+
+</body>
+
+</html>

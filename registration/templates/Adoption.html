@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Fill Up Your Pet Details</title>
+</head>
+<style>
+    body {
+        font-size: 16px;
+        background: #f9f9f9;
+    }
+
+    h2 {
+        text-align: center;
+        border-bottom: 2px solid green;
+    }
+
+    form {
+        width: 400px;
+        background: #fff;
+        padding: 15px 40px 40px;
+        margin: 50px auto 0;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .input-name {
+        text-align: left;
+    }
+
+    .input-name label {
+        color: #333;
+    }
+
+    .input-name input,
+    .input-name select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .check-button {
+        margin-right: 5px;
+    }
+
+    .btn-submit {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-submit:hover {
+        background-color: #218838;
+    }
+
+    @media only screen and (max-width: 768px) {
+        form {
+            width: 80%;
+        }
+    }
+</style>
+<body>
+<div class="main">
+    <div class="register">
+        <form id="register" method="post">
+            <h2>Pet Adoption Form</h2>
+            <div class="input-name">
+                <label>First Name :</label><br>
+                <input type="text" name="firstname" id="first_name" placeholder="Enter Your First Name" required>
+            </div><br>
+            <div class="input-name">
+                <label>Last name :</label><br>
+                <input type="text" name="lastname" id="last_name" placeholder="Enter Your Last Name" required>
+            </div><br>
+            <div class="input-name">
+                <label>Email :</label><br>
+                <input type="email" name="email" id="email" placeholder="Enter Your Valid Mail" required>
+            </div><br>
+            <div class="input-name">
+                <label>Contact No. :</label><br>
+                <input type="tel" name="contact no." id="number" placeholder="Enter Contact Number" required>
+            </div><br>
+            <div class="input-name">
+                <label>Pet :</label><br>
+                <select class="Pets" required>
+                    <option value="" disabled selected>Choose your pet</option>
+                    <option value="Bird">Bird</option>
+                    <option value="Cat">Cat</option>
+                    <option value="Dog">Dog</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div><br>
+            <div class="input-name">
+                <label>Breed :</label><br>
+                <input type="text" name="breed" id="name" placeholder="Enter pets breed" required>
+            </div><br>
+            <div class="input-name">
+                <label>Terms and Conditions :</label><br>
+                <label><input type="checkbox" class="check-button" required> I accept the terms and conditions.</label>
+            </div><br>
+            <div class="input-name">
+                <button type="button" class="btn btn-submit">Submit</button>
+            </div>
+        </form>
+    </div><!--end register-->
+</div><!--end main-->
+
+<script>
+    document.querySelector('.btn-submit').addEventListener('click', function() {
+        alert('Your adoption request is successful.');
+        document.getElementById('register').reset();
+    });
+</script>
+</body>
+</html>
