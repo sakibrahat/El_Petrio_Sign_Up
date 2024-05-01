@@ -131,6 +131,15 @@ button{
 .social i{
   margin-right: 4px;
 }
+.title{
+    margin-left: 150px;
+    color: rgb(205, 205, 209);
+    font-size: 20px;
+}
+a{
+
+    padding-left: 80px;
+}
 
     </style>
 </head>
@@ -140,7 +149,8 @@ button{
         <div class="shape"></div>
     </div>
     <form action="" method="post">
-        {% csrf_token %} 
+        {% csrf_token %}
+        <p class="title">El Petrio</p>
         <h3>Signup Here</h3>
 
         <label for="username">Username</label>
