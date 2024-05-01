@@ -104,6 +104,59 @@
             <p>No pets found.</p>
         {% endif %}
     </div>
+<h2>Add Your Pet</h2>
+
+    <!-- Radio buttons -->
+    <input type="radio" name="action" id="addPetRadio" value="addPet">
+    <label for="addPetRadio">Add Pet</label>
+
+    <!-- Form to add a pet (Initially hidden) -->
+    <form id="addPetForm" style="display: none;">
+        <label for="petName">Pet Name:</label>
+        <input type="text" id="petName" name="petName"><br><br>
+        <label for="petPrice">Pet Price:</label>
+        <input type="text" id="petPrice" name="petPrice"><br><br>
+        <button type="button" onclick="addPet()">Add</button>
+    </form>
+
+    <script>
+        function addPet() {
+            var petName = document.getElementById("petName").value;
+            var petPrice = document.getElementById("petPrice").value;
+
+            // You can perform validation here if needed
+
+            // Display the added pet in the list with a Purchase button
+            var petList = document.getElementById("petList");
+            var listItem = document.createElement("li");
+            var purchaseButton = document.createElement("button");
+            purchaseButton.textContent = "Purchase";
+            purchaseButton.onclick = function() {
+                window.location.href = "make_payment.html?petName=" + encodeURIComponent(petName) + "&petPrice=" + encodeURIComponent(petPrice);
+            };
+            listItem.textContent = petName + " - $" + petPrice;
+            listItem.appendChild(purchaseButton);
+            petList.appendChild(listItem);
+
+            // Clear the form fields
+            document.getElementById("petName").value = "";
+            document.getElementById("petPrice").value = "";
+        }
+
+        // Function to show/hide the add pet form based on radio button selection
+        document.getElementById("addPetRadio").addEventListener("change", function() {
+            var addPetForm = document.getElementById("addPetForm");
+            if (this.checked) {
+                addPetForm.style.display = "block";
+            } else {
+                addPetForm.style.display = "none";
+            }
+        });
+    </script>
+
+    <!-- List to display added pets -->
+    <h3>Added Pets:</h3>
+    <ul id="petList"></ul>
 
 </body>
 
