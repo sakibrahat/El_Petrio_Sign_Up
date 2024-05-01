@@ -4,6 +4,32 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, HttpResponse, redirect
 
 from .models import Pet
+from django.shortcuts import render, redirect
+from .forms import PetForm
+from .models import Pet
+def buying(request):
+    pets = Pet.objects.filter(is_sold=False)
+    form = PetForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('buying')
+    return render(request, 'Buying.html', {'form': form, 'pets': pets})
+
+def make_payment(request, pet_id):
+    pet = Pet.objects.get(id=pet_id)
+    if request.method == 'POST':
+        pet.is_sold = True
+        pet.save()
+        return redirect('buying')
+    return render(request, 'make_payment.html', {'pet': pet})
+
+
+def make_payment(request):
+    pet_id = request.GET.get('pet_id')
+    return HttpResponse("Payment successful")
+
+
+
 
 
 # Create your views here.
