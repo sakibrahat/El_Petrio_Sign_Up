@@ -31,5 +31,5 @@ urlpatterns = [
     path('Buying/', views.buying_page, name='Buying'),
     path('Adoption/', views.Adoption, name='Adoption'),
 
-path('Buying/make_payment.html', views.make_payment, name='make_payment'),
+    path('Buying/make_payment.html', views.make_payment, name='make_payment'),
 ]
