@@ -1,12 +1,13 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.shortcuts import render, HttpResponse, redirect
+from django.http import HttpResponse
 
-from .models import Pet
+
 from django.shortcuts import render, redirect
 from .forms import PetForm
 from .models import Pet
+
 def buying(request):
     pets = Pet.objects.filter(is_sold=False)
     form = PetForm(request.POST or None)
@@ -27,6 +28,11 @@ def make_payment(request, pet_id):
 def make_payment(request):
     pet_id = request.GET.get('pet_id')
     return HttpResponse("Payment successful")
+
+
+
+
+
 
 
 
@@ -103,6 +109,7 @@ def Adoption(request):
     return render(request, 'Adoption.html')
 
 
+
 def buying_page(request):
     return render(request, 'Buying.html')
     # Get parameters from the request, if any
@@ -147,4 +154,6 @@ def pet_buying_page(request):
         'query': query
     }
     return render(request, 'Buying.html', context)
+
+
 

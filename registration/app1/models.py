@@ -13,6 +13,7 @@ class Pet(models.Model):
 
 
 class Pet(models.Model):
+    name = models.CharField(max_length=100)
     breed = models.CharField(max_length=100)
     age = models.IntegerField()
     location = models.CharField(max_length=100)

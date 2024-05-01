@@ -1,0 +1,6 @@
+<h2>Add a Pet</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Pet</button>
+</form>
