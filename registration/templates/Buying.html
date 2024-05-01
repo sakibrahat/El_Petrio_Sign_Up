@@ -10,6 +10,7 @@
     <style>
         body {
             font-family: tauri, sans-serif;
+            background-color: #7ee0e3;
 
 
         }
@@ -47,7 +48,26 @@
         .underlined-heading {
             text-decoration: underline;
         }
+        
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-size: 25px;
+    }
+    #addPetForm {
+        display: none;
+    }
+    @media only screen and (max-width: 600px) {
+        /* Adjust styles for smaller screens */
+        #container {
+            padding: 0 10px;
+        }
+    }
 
+    
     </style>
 </head>
 
@@ -74,10 +94,7 @@
         <h2>Search Results</h2>
 
 
-        <style>
-            {
-            color: black
-            }
+        
         </style>
         <form method="GET" action="{% url 'Buying' %}">
 
@@ -108,28 +125,34 @@
             <p>No pets found.</p>
         {% endif %}
     </div>
-<h2>Add Your Pet</h2>
-
-    <!-- Radio buttons -->
-    <input type="radio" name="action" id="addPetRadio" value="addPet">
-    <label for="addPetRadio">Add Pet</label>
-
-    <!-- Form to add a pet (Initially hidden) -->
-    <form id="addPetForm" style="display: none;">
-        <label for="petName">Pet Name:</label>
-        <input type="text" id="petName" name="petName"><br><br>
-        <label for="petPrice">Pet Price:</label>
-        <input type="text" id="petPrice" name="petPrice"><br><br>
-        <button type="button" onclick="addPet()">Add</button>
-    </form>
-
+    <div id="container">
+        <h2>Add Your Pet</h2>
+    
+        <!-- Radio buttons -->
+        <input type="radio" name="action" id="addPetRadio" value="addPet">
+        <label class="add_pet" for="addPetRadio">Add Pet</label>
+    
+        <!-- Form to add a pet (Initially hidden) -->
+        <form id="addPetForm">
+            <label for="petName">Pet Name:</label>
+            <input type="text" id="petName" name="petName"><br><br>
+            <label for="petPrice">Pet Price:</label>
+            <input type="text" id="petPrice" name="petPrice"><br><br>
+            <button type="button" onclick="addPet()">Add</button>
+        </form>
+    
+        <!-- List to display added pets -->
+        <h3>Added Pets:</h3>
+        <ul id="petList"></ul>
+    </div>
+    
     <script>
         function addPet() {
             var petName = document.getElementById("petName").value;
             var petPrice = document.getElementById("petPrice").value;
-
+    
             // You can perform validation here if needed
-
+    
             // Display the added pet in the list with a Purchase button
             var petList = document.getElementById("petList");
             var listItem = document.createElement("li");
@@ -141,12 +164,12 @@
             listItem.textContent = petName + " - $" + petPrice;
             listItem.appendChild(purchaseButton);
             petList.appendChild(listItem);
-
+    
             // Clear the form fields
             document.getElementById("petName").value = "";
             document.getElementById("petPrice").value = "";
         }
-
+    
         // Function to show/hide the add pet form based on radio button selection
         document.getElementById("addPetRadio").addEventListener("change", function() {
             var addPetForm = document.getElementById("addPetForm");
@@ -157,10 +180,6 @@
             }
         });
     </script>
-
-    <!-- List to display added pets -->
-    <h3>Added Pets:</h3>
-    <ul id="petList"></ul>
 
 </body>
 
