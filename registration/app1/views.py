@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, HttpResponse, redirect
 
-
 from .models import Pet
 
 
@@ -54,12 +53,29 @@ def userpage(request):
     return render(request, 'user.html')
 
 
-def servicepage(request):
+def servicepage(request, form=None):
+    if request.method == 'POST':
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        age = request.POST.get('age')
+        email = request.POST.get('email')
+        contact_no = request.POST.get('contact_no')
+        gender = request.POST.get('gender')
+        pet = request.POST.get('pet')
+        special_marks = request.POST.get('special_marks')
+        breed = request.POST.get('breed')
+        start_date = request.POST.get('start_date')
+        end_date = request.POST.get('end_date')
+        terms_condition = request.POST.get('term_condition')
     return render(request, 'service.html')
 
 
 def servicespage(request):
     return render(request, 'newservices.html')
+
+def Adoption(request):
+    return render(request, 'Adoption.html')
+
 
 def buying_page(request):
     return render(request, 'Buying.html')
@@ -90,4 +106,19 @@ def buying_page(request):
         'pets': pets,
     }
     return render(request, 'homepage/buying_page.html', context)
+
+
+
+def pet_buying_page(request):
+    query = request.GET.get('q')
+    pets = Pet.objects.all()
+
+    if query:
+        pets = pets.filter(breed__icontains=query)  # Assuming 'name' is the field you want to search on
+
+    context = {
+        'pets': pets,
+        'query': query
+    }
+    return render(request, 'Buying.html', context)
 

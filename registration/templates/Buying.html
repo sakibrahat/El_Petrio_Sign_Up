@@ -61,6 +61,7 @@
     <a href="{% url 'newservices' %}">Daycare Service</a>
     <a href="#">Pricing</a>
     <a href="{% url 'Buying' %}" class="underlined-heading">Buying</a>
+        <a href="{% url 'Adoption' %}">Pet Adoption</a>
     <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
   </nav>
 
@@ -75,7 +76,9 @@
             color: black
             }
         </style>
-        <form method="get"  >
+        <form method="GET" action="{% url 'Buying' %}">
+    <input type="text" name="q" placeholder="Search for pets...">
+    <button type="submit">Search</button>
 
             <input type="text" name="query" placeholder="Search by breed">
             <input type="number" name="min_age" placeholder="Min Age">
@@ -83,7 +86,7 @@
             <input type="text" name="location" placeholder="Location">
             <input type="number" name="min_price" placeholder="Min Price">
             <input type="number" name="max_price" placeholder="Max Price">
-            <button type="submit">Search</button>
+
         </form>
         {% if pets %}
             <ul>
