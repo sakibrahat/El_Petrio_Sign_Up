@@ -8,6 +8,11 @@ from django.shortcuts import render, redirect
 from .forms import PetForm
 from .models import Pet
 
+#pricing page defining
+
+def pricing(request):
+    return render(request, 'pricing.html')
+
 def buying(request):
     pets = Pet.objects.filter(is_sold=False)
     form = PetForm(request.POST or None)
