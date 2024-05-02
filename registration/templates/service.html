@@ -146,5 +146,18 @@ form{
     </form>
     </div>
 </div>
+
+
+<script>
+    document.getElementById('register').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        
+       
+        alert('Your pet daycare request is successful.');
+
+        
+        document.getElementById('register').reset();
+    });
+</script>
 </body>
 </html>
